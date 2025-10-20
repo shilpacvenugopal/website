@@ -117,11 +117,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/' # Define STATIC_URL once
+# STATIC_URL = '/static/' # Define STATIC_URL once
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static", # Define STATICFILES_DIRS once
+# ]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# settings.py (at the bottom, inside the Static files section)
+
+# ... (Existing STATIC_URL and STATIC_ROOT lines)
+STATIC_URL = '/static/'  # URL for static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Folder where collectstatic will put files
+
+# ADD THESE LINES: Tells Django where to look for static files in development
 STATICFILES_DIRS = [
-    BASE_DIR / "static", # Define STATICFILES_DIRS once
+    BASE_DIR / 'static',
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# ... (rest of the file)
+
+# Optional if you have media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 
 # For production deployment, you would uncomment and set STATIC_ROOT
