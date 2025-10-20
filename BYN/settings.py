@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent # Define BASE_DIR once here
@@ -23,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent # Define BASE_DIR once here
 SECRET_KEY = 'django-insecure-1bumi$e3y!2t31nil%wzkl)j81r_6k6qe94ha(+(5r$jug1e@^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "website-vcg3.onrender.com"]
 
 
 # Application definition
@@ -119,6 +121,8 @@ STATIC_URL = '/static/' # Define STATIC_URL once
 STATICFILES_DIRS = [
     BASE_DIR / "static", # Define STATICFILES_DIRS once
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # For production deployment, you would uncomment and set STATIC_ROOT
 # STATIC_ROOT = BASE_DIR / 'staticfiles'
