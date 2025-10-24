@@ -508,3 +508,32 @@ h6,
     }
 }
 
+#about {
+    scroll-margin-top: 100px; 
+}
+/* FORCED JUSTIFICATION: Aligns text to both the left and right edges */
+.text-justify-custom {
+    text-align: justify !important; 
+    text-align-last: justify;
+}
+
+/* Controls the width of the paragraph block, allowing it to be centered by mx-auto */
+.vision-mission-text-width {
+    max-width: 90%; /* Adjust this percentage (e.g., 85% or 95%) to fine-tune alignment */
+}
+
+/* Centers text on mobile and ensures full width */
+@media (max-width: 768px) {
+    .text-justify-custom {
+        text-align: center !important;
+        text-align-last: center;
+    }
+    .vision-mission-text-width {
+        max-width: 100%; /* Allows full width on mobile devices */
+    }
+}
+
+
+
+
+
