@@ -15,6 +15,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 
@@ -27,6 +28,13 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <style>
+        #header-carousel .carousel-item.active * {
+            font-family: 'Red Hat Text', sans-serif !important;
+        }
+    </style>
+    
 </head>
 
 <body>
@@ -64,17 +72,22 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3 text-center" style="max-width: 900px;">
                             <h1 class="display-3 text-white mb-3 animated zoomIn"
-                                style="color: #FFFFFF; margin: 10px 0px; line-height: 1.2; font-family: 'Lato', sans-serif; 
+                                style="color: #FFFFFF; margin: 10px 0px; line-height: 1.2; 
                                     font-size: 50px;">
                                 BYN GROUP
                             </h1>
                             <h1 class="display-3 text-white mb-3 animated zoomIn"
-                                style="color: #FFFFFF; margin: 5px 0px; line-height: 1.2; font-family: 'Lato', sans-serif; 
-                                    font-size: 50px; white-space: nowrap;">
+                            style="color: #FFFFFF; margin: 5px 0px; line-height: 1.2;" 
+                            >
+                            <span class="d-none d-lg-inline" style="font-size: 50px;">
                                 Transforming Vision Into Global Impact
+                            </span>
+                            <span class="d-lg-none fs-2 fs-md-1">
+                                Transforming Vision Into Global Impact
+                            </span>
                             </h1>
                             <h6 class="text-white mb-4 animated fadeIn fs-6 fs-md-5 mx-auto"
-                                style="max-width: 90%; font-family: 'Lato', sans-serif;">
+                                style="max-width: 90%;">
                                 We build new solutions and transform existing opportunities
                                 into better outcomes for the nation and the world. We stand for trust, quality, and sustainability
                             </h6>
@@ -159,6 +172,7 @@
         </div>
             
     </div>
+    
     <!-- carousel END -->
 
 
@@ -290,7 +304,7 @@
 
    <!-- FOUNDER START -->
    <div class="container-fluid py-5 wow fadeInUp bg-white" data-wow-delay="0.1s" id="meet-the-team">
-    <div class="container py-5 d-flex flex-column justify-content-center" style="min-height: 75vh;">
+    <div class="container py-5 d-flex flex-column justify-content-center" style="min-height: 85vh;">
         
         <div class="row g-5">
             <div class="col-lg-12">
@@ -358,17 +372,16 @@
 
         </div> 
     </div>
-</div>
+    </div>
     <!-- FOUNDER END -->
 
 
     <!-- Our Ventures Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" id="ventures">
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" id="ventures" style="background-color: #f2f2f2;">
         <div class="container py-5">
             <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
                 <h5 class="fw-bold text-primary text-uppercase">OUR VENTURES</h5>
-                <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1>
-            </div>
+                </div>
             <div>
                 <p class="mb-8"> At BYN Group, every venture is driven by a commitment to create meaningful
                     global impact. Our projects span diverse industries, each designed to solve real
@@ -379,69 +392,87 @@
                 </p>
             </div>
             <div class="row g-5">
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="col-lg-4 col-md-3 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="service-item rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: #fff;">
                         <div class="service-icon">
                             <i class="fa fa-shield-alt text-white"></i>
                         </div>
-                        <h4 class="mb-3">Cloud-Based Services (Stealth Start-up)</h4>
-                        <a class="btn btn-lg btn-primary rounded" href="">
-                            <i class="bi bi-arrow-right"></i>
+                        <h6 class="mb-3">Cloud-Based Services (Stealth Start-up)</h6>
+                        <a class="btn btn-lg btn-primary rounded" 
+                            href="#" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#cloudServiceModal">
+                                <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="col-lg-4 col-md-3 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="service-item rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: #fff;">
                         <div class="service-icon">
-                            <i class="fa fa-chart-pie text-white"></i>
+                            <i class="fa fa-shield-alt text-white"></i>
                         </div>
-                        <h4 class="mb-3">Digital Service Platform (Stealth AI Start-up)</h4>
-                        <a class="btn btn-lg btn-primary rounded" href="">
-                            <i class="bi bi-arrow-right"></i>
+                        <h6 class="mb-3">Digital Service Platform (Stealth AI Start-up)</h6>
+                        <a class="btn btn-lg btn-primary rounded" 
+                            href="#" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#digitalserviceeModal">
+                                <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="col-lg-4 col-md-3 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="service-item rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: #fff;">
                         <div class="service-icon">
-                            <i class="fa fa-code text-white"></i>
+                            <i class="fa fa-shield-alt text-white"></i>
                         </div>
-                        <h4 class="mb-3">Marketplace Platform (Stealth Start-up)</h4>
-                        <a class="btn btn-lg btn-primary rounded" href="">
-                            <i class="bi bi-arrow-right"></i>
+                        <h6 class="mb-3">Marketplace Platform (Stealth Start-up)</h6>
+                        <a class="btn btn-lg btn-primary rounded" 
+                            href="#" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#marketplaceModal">
+                                <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="col-lg-4 col-md-3 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="service-item rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: #fff;">
                         <div class="service-icon">
-                            <i class="fab fa-android text-white"></i>
+                            <i class="fa fa-shield-alt text-white"></i>
                         </div>
-                        <h4 class="mb-3">IT Consultancy</h4>
-                        <a class="btn btn-lg btn-primary rounded" href="">
-                            <i class="bi bi-arrow-right"></i>
+                        <h6 class="mb-3">IT Consultancy</h6>
+                        <a class="btn btn-lg btn-primary rounded" 
+                            href="#" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#itconsultancyModal">
+                                <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="col-lg-4 col-md-3 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="service-item rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: #fff;">
                         <div class="service-icon">
-                            <i class="fa fa-search text-white"></i>
+                            <i class="fa fa-shield-alt text-white"></i>
                         </div>
-                        <h4 class="mb-3">Corporate Legal, Secretarial & Accounting Services</h4>
-                        <a class="btn btn-lg btn-primary rounded" href="">
-                            <i class="bi bi-arrow-right"></i>
+                        <h6 class="mb-3">Corporate Legal, Secretarial & Accounting Services</h6>
+                        <a class="btn btn-lg btn-primary rounded" 
+                            href="#" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#CorporateModal">
+                                <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                <div class="col-lg-4 col-md-3 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="service-item rounded d-flex flex-column align-items-center justify-content-center text-center" style="background-color: #fff;">
                         <div class="service-icon">
-                            <i class="fa fa-search text-white"></i>
+                            <i class="fa fa-shield-alt text-white"></i>
                         </div>
-                        <h4 class="mb-3">Offline Projects</h4>
-                        <a class="btn btn-lg btn-primary rounded" href="">
-                            <i class="bi bi-arrow-right"></i>
+                        <h6 class="mb-3">Offline Projects</h6>
+                        <a class="btn btn-lg btn-primary rounded" 
+                            href="#" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#offlineModal">
+                                <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -449,6 +480,219 @@
         </div>
     </div>
     <!-- Our Ventures END -->
+
+    <!-- Modal of cloudservice start -->
+    <div class="modal fade" id="cloudServiceModal" tabindex="-1" aria-labelledby="cloudServiceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    
+                    <div class="row g-4 align-items-center">
+                        
+                        <div class="col-lg-4">
+                            <img src="{% static 'img/about.jpg' %}" class="img-fluid rounded" alt="Diagram showing decentralised cloud services.">
+                            <!-- <small class="text-muted d-block mt-2">Diagram: Decentralized Zero-Trust Architecture</small> -->
+                        </div>
+                        
+                        <div class="col-lg-7">
+                            <h6 class="fw-bold text-primary text-uppercase mb-1">Cloud-Based Services (Stealth Start-up)</h6>
+                            <hr class="w-25 text-primary mb-3">
+                            <p>
+                                We are developing our first venture in the cloud technology domain — a
+                                competitive space filled with opportunities. Our approach focuses on introducing
+                                unique functionalities that address real user challenges and enhance the overall
+                                experience. This platform is being built to deliver reliable, scalable, and user-
+                                centric solutions for the next generation of businesses.
+                            </p>
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal of cloudservice end -->
+
+    <!-- Modal of digitalserviceeModal start -->
+    <div class="modal fade" id="digitalserviceeModal" tabindex="-1" aria-labelledby="digitalserviceeModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    
+                    <div class="row g-4 align-items-center">
+                        
+                        <div class="col-lg-4">
+                            <img src="{% static 'img/about.jpg' %}" class="img-fluid rounded" alt="Diagram showing decentralised cloud services.">
+                            <!-- <small class="text-muted d-block mt-2">Diagram: Decentralized Zero-Trust Architecture</small> -->
+                        </div>
+                        
+                        <div class="col-lg-7">
+                            <h6 class="fw-bold text-primary text-uppercase mb-1">Digital Service Platform (Stealth AI Start-up)</h6>
+                            <hr class="w-25 text-primary mb-3">
+                            <p>
+                                Our upcoming AI-driven digital platform is designed to make a significant impact
+                                by providing a complete end-to-end solution for individuals, professionals, and
+                                enterprises. With a strong innovation roadmap and scalable business model, we
+                                envision achieving a valuation of over one billion within three years of its main
+                                launch.
+                            </p>
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal of digitalserviceeModal end -->
+
+    <!-- Modal of marketplaceModal start -->
+    <div class="modal fade" id="marketplaceModal" tabindex="-1" aria-labelledby="marketplaceModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    
+                    <div class="row g-4 align-items-center">
+                        
+                        <div class="col-lg-4">
+                            <img src="{% static 'img/about.jpg' %}" class="img-fluid rounded" alt="Diagram showing decentralised cloud services.">
+                            <!-- <small class="text-muted d-block mt-2">Diagram: Decentralized Zero-Trust Architecture</small> -->
+                        </div>
+                        
+                        <div class="col-lg-7">
+                            <h6 class="fw-bold text-primary text-uppercase mb-1">Marketplace Platform (Stealth Start-up)</h6>
+                            <hr class="w-25 text-primary mb-3">
+                            <p>
+                                This venture introduces a first-of-its-kind marketplace model that connects users
+                                and sellers in a completely new way. Focused on solving a long-standing industry
+                                pain point, the platform is designed to deliver consistent revenue while
+                                maintaining scalability and long-term sustainability in both domestic and global
+                                markets.
+                            </p>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal of marketplaceModal end -->
+
+    <!-- Modal of itconsultancyModal start -->
+    <div class="modal fade" id="itconsultancyModal" tabindex="-1" aria-labelledby="itconsultancyModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    
+                    <div class="row g-4 align-items-center">
+                        
+                        <div class="col-lg-4">
+                            <img src="{% static 'img/about.jpg' %}" class="img-fluid rounded" alt="Diagram showing decentralised cloud services.">
+                            <!-- <small class="text-muted d-block mt-2">Diagram: Decentralized Zero-Trust Architecture</small> -->
+                        </div>
+                        
+                        <div class="col-lg-7">
+                            <h6 class="fw-bold text-primary text-uppercase mb-1">IT Consultancy</h6>
+                            <hr class="w-25 text-primary mb-3">
+                            <p>
+                                We provide comprehensive IT consultancy services, including web and
+                                application development, AI integration, digital marketing solutions (SEO, SMM,
+                                and content creation), and creative services that help businesses establish a
+                                strong digital presence.
+                            </p>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal of itconsultancyModal end -->
+
+    <!-- Modal of CorporateModal start -->
+    <div class="modal fade" id="CorporateModal" tabindex="-1" aria-labelledby="CorporateModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    
+                    <div class="row g-4 align-items-center">
+                        
+                        <div class="col-lg-4">
+                            <img src="{% static 'img/about.jpg' %}" class="img-fluid rounded" alt="Diagram showing decentralised cloud services.">
+                            <!-- <small class="text-muted d-block mt-2">Diagram: Decentralized Zero-Trust Architecture</small> -->
+                        </div>
+                        
+                        <div class="col-lg-7">
+                            <h6 class="fw-bold text-primary text-uppercase mb-1">Corporate Legal, Secretarial & Accounting Services</h6>
+                            <hr class="w-25 text-primary mb-3">
+                            <p>
+                                We deliver professional CL, CS, and CA consultancy for start-ups and small
+                                businesses, helping them manage compliance, governance, and financial
+                                operations with transparency and expertise.
+                            </p>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal of CorporateModal end -->
+
+     <!-- Modal of offlineModal start -->
+     <div class="modal fade" id="offlineModal" tabindex="-1" aria-labelledby="offlineModal" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    
+                    <div class="row g-4 align-items-center">
+                        
+                        <div class="col-lg-4">
+                            <img src="{% static 'img/about.jpg' %}" class="img-fluid rounded" alt="Diagram showing decentralised cloud services.">
+                            <!-- <small class="text-muted d-block mt-2">Diagram: Decentralized Zero-Trust Architecture</small> -->
+                        </div>
+                        
+                        <div class="col-lg-7">
+                            <h6 class="fw-bold text-primary text-uppercase mb-1">Offline Projects</h6>
+                            <hr class="w-25 text-primary mb-3">
+                            <p>
+                                We are also investing in offline innovations with high market potential. Our
+                                upcoming product in this segment aims to achieve patent recognition and
+                                establish a strong presence in one of the largest global industries.
+                            </p>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal of offlineModal end -->
+
+   
 
     <!-- INVESTOR RELATIONS Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" id="investor_relations">

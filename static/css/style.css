@@ -225,6 +225,11 @@ h6,
 
 /*** Carousel ***/
 
+/* Target the first active carousel item and apply the font to all its children */
+#header-carousel .carousel-item.active * {
+    font-family: 'Red Hat Text', sans-serif !important;
+}
+
 .carousel-caption {
     top: 0;
     left: 0;
@@ -330,9 +335,10 @@ h6,
 /*** Service ***/
 .service-item {
     position: relative;
-    height: 900px;
+    height: 100px;
     padding: 0 30px;
     transition: .5s;
+    
 }
 
 .service-item .service-icon {
