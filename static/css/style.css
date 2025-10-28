@@ -19,7 +19,7 @@
 
 /********** GLOBAL FONT **********/
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 @-webkit-keyframes sk-rotateplane {
@@ -65,7 +65,7 @@ body {
 
 /*** Heading ***/
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 h1,
 h2,
@@ -88,7 +88,7 @@ h6,
 
 /*** Button ***/
 .btn {
-    /* font-family: 'Lato', sans-serif; */
+    /* font-family: 'Montserrat', sans-serif; */
     font-weight: 600;
     transition: .5s;
 }
@@ -133,7 +133,7 @@ h6,
 
 /*** Navbar ***/
 .navbar-dark .navbar-nav .nav-link {
-    /* font-family: 'Lato', sans-serif; */
+    /* font-family: 'Montserrat', sans-serif; */
     position: relative;
     margin-left: 25px;
     padding: 35px 0;
@@ -226,9 +226,7 @@ h6,
 /*** Carousel ***/
 
 /* Target the first active carousel item and apply the font to all its children */
-#header-carousel .carousel-item.active * {
-    font-family: 'Red Hat Text', sans-serif !important;
-}
+
 
 .carousel-caption {
     top: 0;
@@ -253,7 +251,7 @@ h6,
 }
 
 /* .carousel-caption .display-1 {
-    font-family: 'Lato', sans-serif !important;
+    font-family: 'Montserrat', sans-serif !important;
 } */
 
 
