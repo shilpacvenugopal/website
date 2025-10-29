@@ -270,52 +270,29 @@ h6,
 
 
 /*** Section Title ***/
-.section-title::before {
+/* LEFT-ALIGNED STATIC UNDERLINE BELOW SECTION TITLES */
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .section-title::before {
     position: absolute;
     content: "";
-    width: 150px;
-    height: 5px;
-    left: 0;
+    width: 150px;          /* length of the line */
+    height: 5px;           /* thickness */
+    left: 0;               /* 👈 aligns the line to the left */
     bottom: 0;
-    background: var(--primary);
+    background: var(--primary); /* your theme color */
     border-radius: 2px;
-}
-
-.section-title.text-center::before {
-    left: 50%;
-    margin-left: -75px;
-}
-
-.section-title.section-title-sm::before {
-    width: 90px;
-    height: 3px;
-}
-
-.section-title::after {
-    position: absolute;
-    content: "";
-    width: 6px;
-    height: 5px;
-    bottom: 0px;
-    background: #FFFFFF;
-    -webkit-animation: section-title-run 5s infinite linear;
-    animation: section-title-run 5s infinite linear;
-}
-
-.section-title.section-title-sm::after {
-    width: 4px;
-    height: 3px;
-}
-
-.section-title.text-center::after {
-    -webkit-animation: section-title-run-center 5s infinite linear;
-    animation: section-title-run-center 5s infinite linear;
-}
-
-.section-title.section-title-sm::after {
-    -webkit-animation: section-title-run-sm 5s infinite linear;
-    animation: section-title-run-sm 5s infinite linear;
-}
+  }
+  
+  /* remove animation or moving dot */
+  .section-title::after {
+    display: none;
+  }
+  
 
 @-webkit-keyframes section-title-run {
     0% {left: 0; } 50% { left : 145px; } 100% { left: 0; }
@@ -537,6 +514,27 @@ h6,
     }
 }
 
+
+/* About Us Text Justification */
+#about p {
+    text-align: justify;
+    text-justify: inter-word;
+    color: #555555;
+    line-height: 1.7;
+  }
+  
+  /* About Section Image Styling */
+  #about img {
+    border-radius: 100px; /* 👈 makes image corners slightly curved */
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  /* Optional: subtle zoom on hover */
+  #about img:hover {
+    transform: scale(1.03);
+  }
+  
 
 
 

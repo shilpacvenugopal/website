@@ -50,10 +50,10 @@
                 <div class="navbar-nav ms-auto py-0">
                     <a href="/" class="nav-item nav-link">Home</a>
                     <a href="#about" class="nav-item nav-link">About</a>
+                    <a href="#team" class="nav-item nav-link">Teams</a>
                     <a href="#ventures" class="nav-item nav-link">Our Ventures</a>
                     <a href="#careers" class="nav-item nav-link">Careers</a>
                     <a href="#investor_relations" class="nav-item nav-link">Investor Relations</a>
-                    <a href="#contact" class="nav-item nav-link">Contact</a>
                 </div>
             </div>
         </nav>
@@ -61,7 +61,7 @@
 
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active" data-bs-interval="1500">
                     <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Image" style="height: 100vh; object-fit: cover;">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3 text-center" style="max-width: 900px;">
@@ -173,57 +173,67 @@
 
    <!-- Timelline Start -->
 
-    <div class="container-fluid facts pb-0 pt-lg-0">
-        <div class="container pt-lg-0 pb-0">
-            <div class="row gx-0">
-                <div class="col-lg-3 wow zoomIn" data-wow-delay="0.1s">
-                    <div class="shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;background-color: #121A4B;">
-                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                            <i class="fa fa-users text-primary"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="text-white mb-0">Launch Stage Projects</h5>
-                            <h1 class="text-white mb-0" data-toggle="counter-up">2</h1>
-                        </div>
+   <div class="container-fluid facts pb-0 pt-lg-0">
+    <div class="container pt-lg-0 pb-0">
+        <div class="row gx-0">
+
+            <div class="col-lg-3 wow zoomIn" data-wow-delay="0.1s">
+                <div class="shadow d-flex align-items-center justify-content-center p-4"
+                    style="height: 150px; background-color: #121A4B;">
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <i class="fa fa-users text-white" style="font-size: 28px;"></i>
                     </div>
-                </div>
-                <div class="col-lg-3 wow zoomIn" data-wow-delay="0.3s">
-                    <div class="shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;background-color: #ffffff;">
-                        <div class="bg-primary d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                            <i class="fa fa-check text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="text-primary mb-0">Market Research & Survey Projects</h5>
-                            <h1 class="mb-0" data-toggle="counter-up">4</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 wow zoomIn" data-wow-delay="0.6s">
-                    <div class="shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;background-color: #121A4B;">
-                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                            <i class="fa fa-award text-primary"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="text-white mb-0">Upcoming Ventures Projects</h5>
-                            <h1 class="text-white mb-0" data-toggle="counter-up">2</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 wow zoomIn" data-wow-delay="0.3s">
-                    <div class="shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;background-color: #ffffff;">
-                        <div class="bg-primary d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
-                            <i class="fa fa-check text-white"></i>
-                        </div>
-                        <div class="ps-4">
-                            <h5 class="text-primary mb-0">Other Projects</h5>
-                            <h1 class="mb-0 d-inline-block" data-toggle="counter-up">8</h1>
-                            <span class="mb-0 h1 ps-1">+</span>
-                        </div>
+                    <div class="ps-4">
+                        <h5 class="text-white mb-0">Launch Stage Projects</h5>
+                        <h1 class="text-white mb-0" data-toggle="counter-up">2</h1>
                     </div>
                 </div>
             </div>
+
+            <div class="col-lg-3 wow zoomIn" data-wow-delay="0.3s">
+                <div class="shadow d-flex align-items-center justify-content-center p-4"
+                    style="height: 150px; background-color: #ffffff;">
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <i class="fa fa-check" style="color: #121A4B; font-size: 30px;"></i>
+                    </div>
+                    <div class="ps-4">
+                        <h5 class="mb-0" style="color: #121A4B;">Market Research & Survey Projects</h5>
+                        <h1 class="mb-0" data-toggle="counter-up" style="color: #121A4B;">4</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 wow zoomIn" data-wow-delay="0.6s">
+                <div class="shadow d-flex align-items-center justify-content-center p-4"
+                    style="height: 150px; background-color: #121A4B;">
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <i class="fa fa-award text-white" style="font-size: 34px;"></i>
+                    </div>
+                    <div class="ps-4">
+                        <h5 class="text-white mb-0">Upcoming Ventures Projects</h5>
+                        <h1 class="text-white mb-0" data-toggle="counter-up">2</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 wow zoomIn" data-wow-delay="0.3s">
+                <div class="shadow d-flex align-items-center justify-content-center p-4"
+                    style="height: 150px; background-color: #ffffff;">
+                    <div class="d-flex align-items-center justify-content-center mb-2">
+                        <i class="fa fa-cogs" style="color: #121A4B; font-size: 36px;"></i>
+                    </div>
+                    <div class="ps-4">
+                        <h5 class="mb-0" style="color: #121A4B;">Other Projects</h5>
+                        <h1 class="mb-0 d-inline-block" data-toggle="counter-up" style="color: #121A4B;">8</h1>
+                        <span class="mb-0 h1 ps-1" style="color: #121A4B;">+</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+</div>
+
    <!-- Timeline  END -->
     
 
@@ -298,7 +308,7 @@
 
 
    <!-- FOUNDER START -->
-   <div class="container-fluid py-5 wow fadeInUp bg-white" data-wow-delay="0.1s" id="meet-the-team">
+   <div class="container-fluid py-5 wow fadeInUp bg-white" data-wow-delay="0.1s" id="team">
     <div class="container py-5 d-flex flex-column justify-content-center" style="min-height: 85vh;">
         
         <div class="row g-5">
