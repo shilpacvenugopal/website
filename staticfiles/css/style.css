@@ -517,24 +517,48 @@ h6,
 
 /* About Us Text Justification */
 #about p {
-    text-align: justify;
+
     text-justify: inter-word;
     color: #555555;
     line-height: 1.7;
   }
   
-  /* About Section Image Styling */
-  #about img {
-    border-radius: 100px; /* 👈 makes image corners slightly curved */
+  .about-image {
     object-fit: cover;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.4s ease;
   }
   
-  /* Optional: subtle zoom on hover */
-  #about img:hover {
-    transform: scale(1.03);
+  
+  .about-image:hover {
+    transform: scale(1.02); /* subtle zoom on hover */
   }
   
 
 
 
+  #about {
+    scroll-margin-top: 30px; /* adjust depending on your navbar height */
+  }
+  .team-item {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .team-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  }
+  
+  .team-item img {
+    border-radius: 50%;
+    border: 2px solid #eee;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-item img:hover {
+    transform: scale(1.05);
+  }
+  
