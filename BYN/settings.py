@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-1bumi$e3y!2t31nil%wzkl)j81r_6k6qe94ha(+(5r$jug1e@^
 DEBUG = False
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "website-vcg3.onrender.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testbyn.onrender.com"]
 
 
 # Application definition
