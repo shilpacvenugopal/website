@@ -562,3 +562,83 @@ h6,
     transform: scale(1.05);
   }
   
+
+  .linkedin-link i {
+    color: #0a66c2; /* LinkedIn blue */
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .linkedin-link:hover i {
+    color: #004182; /* darker blue on hover */
+    transform: scale(1.2);
+  }
+  
+  .ventures-section {
+  background-color: #f8f9fa;
+}
+
+.venture-card {
+  background-color: #fff;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.venture-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.tech-icons i {
+  color: #555;
+  margin: 0 5px;
+}
+
+#venture {
+    scroll-margin-top: 130px; /* same as above */
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  #ventures {
+    scroll-margin-top: 100px; /* offset to match fixed navbar height */
+    background-color: #1a4979; /* ensures light grey bg stays */
+
+  }
+  
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .venture-card {
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+  }
+  
+  .venture-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .ventures-wrapper {
+    padding-top: 3rem;
+  }
+  
