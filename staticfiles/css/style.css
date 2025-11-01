@@ -613,7 +613,7 @@ h6,
   }
   
   #ventures {
-    scroll-margin-top: 100px; /* offset to match fixed navbar height */
+    scroll-margin-top: 60px; /* offset to match fixed navbar height */
     background-color: #1a4979; /* ensures light grey bg stays */
 
   }
@@ -641,4 +641,24 @@ h6,
   .ventures-wrapper {
     padding-top: 3rem;
   }
+
+  .modal-content {
+    border-radius: 20px !important;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.modal-body img {
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.btn-close {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(95%) saturate(2500%) hue-rotate(210deg);
+}
+
+  
   
