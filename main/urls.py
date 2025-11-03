@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from .views import submit_investor_query
+
 
 app_name = 'BYN' # Important for namespacing URLs
 
@@ -16,4 +18,7 @@ urlpatterns = [
     path('testimonial/', views.testimonial_view, name='testimonial'),
     path('quote/', views.quote_view, name='quote'),
     path('contact/', views.contact_view, name='contact'),
+
+    path('submitinvestor/', submit_investor_query, name='submit_investor_query'),
+
 ]

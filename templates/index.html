@@ -810,6 +810,7 @@
                 </div>
             </div>
 
+            <!-- FORM -->
             <div class="col-lg-5">
                 <div class="bg-white h-100 d-flex align-items-center p-5 wow zoomIn shadow-sm"
                     data-wow-delay="0.9s"
@@ -836,7 +837,7 @@
                             </div>
 
                             <div class="col-12">
-                                <input id="interest" type="text" class="form-control border-0" placeholder="Area of Interest"
+                                <input id="area_of_interest" type="text" class="form-control border-0" placeholder="Area of Interest"
                                     style="height: 55px; background-color: #e7e4e4; border-radius: 10px; padding-left: 15px;" />
                             </div>
 
@@ -846,7 +847,7 @@
                             </div>
 
                             <div class="col-12">
-                                <button class="btn w-100 py-3" type="button" onclick="submitInvestorForm()"
+                                <button id="investorBtn" class="btn w-100 py-3" type="button"
                                     style="
                                         background-color: #224963;
                                         color: white;
@@ -867,47 +868,80 @@
 
         </div>
     </div>
-</div>
+    </div>
 
-<!-- ✅ JS Script for API POST -->
-<script>
-  async function submitInvestorForm() {
-    const data = {
-      name: document.getElementById("name").value.trim(),
-      phone: document.getElementById("phone").value.trim(),
-      email: document.getElementById("email").value.trim(),
-      area_of_interest: document.getElementById("area_of_interest").value.trim(),
-      message: document.getElementById("message").value.trim(),
-    };
+    <!-- ✅ JS SCRIPT SECTION -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("investorForm");
+    const button = document.getElementById("investorBtn");
 
-    if (!data.name || !data.email) {
-      alert("Please fill in your name and email.");
-      return;
+    function showPopup(message, isSuccess = true) {
+        const popup = document.createElement("div");
+        popup.textContent = message;
+        popup.style.position = "fixed";
+        popup.style.top = "20px";
+        popup.style.left = "50%";
+        popup.style.transform = "translateX(-50%)";
+        popup.style.padding = "15px 25px";
+        popup.style.borderRadius = "10px";
+        popup.style.color = "white";
+        popup.style.fontWeight = "500";
+        popup.style.zIndex = "9999";
+        popup.style.backgroundColor = isSuccess ? "#28a745" : "#dc3545";
+        document.body.appendChild(popup);
+
+        setTimeout(() => popup.remove(), 3000);
     }
 
-    try {
-      const response = await fetch("http://127.0.0.1:8000/submitinvestor/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+    button.addEventListener("click", async function(event) {
+        event.preventDefault();
 
-      if (response.ok) {
-        alert("✅ Thank you! Your message has been sent successfully.");
-        document.getElementById("investorForm").reset();
-      } else {
-        alert("⚠️ Something went wrong. Please try again later.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("❌ Failed to connect to the server.");
-    }
-  }
-</script>
+        const data = {
+            name: document.getElementById("name").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            area_of_interest: document.getElementById("area_of_interest").value.trim(),
+            message: document.getElementById("message").value.trim(),
+        };
 
-    <!-- Investor Relation ENd -->
+        // ✅ Validation
+        if (!data.name || !data.phone || !data.email || !data.area_of_interest || !data.message) {
+            showPopup("⚠️ Please fill in all fields.", false);
+            return;
+        }
+
+        // ✅ Dynamic base URL (works for localhost and deployed site)
+        const baseUrl = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost"
+            ? "http://127.0.0.1:8000"
+            : window.location.origin;
+
+        // --- POST request ---
+        try {
+            console.log("🚀 Sending POST request to:", `${baseUrl}/submitinvestor/`);
+            const response = await fetch(`${baseUrl}/submitinvestor/`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log("✅ POST Success:", result);
+                showPopup("✅ Data submitted successfully!");
+                form.reset();
+            } else {
+                console.warn("⚠️ POST failed with status:", response.status);
+                showPopup("⚠️ Failed to submit. Try again later.", false);
+            }
+        } catch (error) {
+            console.error("❌ POST Error:", error);
+            showPopup("❌ Could not connect to the server.", false);
+        }
+    });
+    });
+    </script>
+    <!-- Investor Relation End -->
 
     <!-- FOOTER START -->
     <div class="container-fluid bg-dark text-light wow fadeInUp" data-wow-delay="0.1s" id="contact">
