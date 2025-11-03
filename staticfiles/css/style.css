@@ -662,5 +662,86 @@ h6,
     filter: brightness(0) saturate(100%) invert(16%) sepia(95%) saturate(2500%) hue-rotate(210deg);
 }
 
+
+.tab {
+    cursor: pointer;
+    font-weight: 500;
+    color: #777;
+    position: relative;
+    padding-bottom: 5px;
+    transition: 0.3s;
+  }
+
+  .tab.active {
+    color: #091E3E;
+    font-weight: 600;
+  }
+
+  .tab.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #091E3E;
+  }
+
+  .tab:hover {
+    color: #091E3E;
+  }
+
+  .job-card {
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #091E3E;
+    border-radius: 10px;
+    padding: 40px; /* increased padding */
+    text-align: left;
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+    height: 140px; /* reduced height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .job-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 15px;
+  }
+
+  .apply-btn {
+    color: #091E3E;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid #091E3E;
+    transition: 0.3s;
+    align-self: flex-end;
+  }
+
+  .apply-btn:hover {
+    color: #091E3E;
+    border-bottom-color: #091E3E;
+  }
+
   
+  .read-more-link {
+    color: #909294; /* soft grey */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .read-more-link:hover {
+    color: #838586; /* darker grey on hover */
+    text-decoration: none; /* still no underline */
+  }
   
