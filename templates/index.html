@@ -714,102 +714,84 @@
   
     <!-- Careers start -->
     <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s" id="careers"
-    style="background-color:#fff; padding:100px 0; margin:0; min-height:100vh; display:flex; align-items:center;">
+        style="background-color:#fff; padding:100px 0; min-height:100vh; display:flex; align-items:center;">
 
-    <div class="container-fluid px-3" style="max-width: 95vw;">
-        
-      <!-- Heading -->
-      <div class="text-center mb-5">
-        <h1 class="fw-bold" style="color: #333333;">Current Openings</h1>
-      </div>
-
-      <!-- Tabs -->
-      <div class="tabs" style="display:flex; justify-content:center; gap:40px; margin-bottom:50px;">
-        <div class="tab active" data-target="developer">Developer</div>
-        <div class="tab" data-target="marketing">Marketing</div>
-        <div class="tab" data-target="designer">Designer</div>
-        <div class="tab" data-target="sales">Sales</div>
-      </div>
-
-      <!-- Jobs - Developer -->
-      <div class="jobs" id="developer"
-            style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:40px;">
-        <div class="job-card">
-          <div class="job-title">iOS Developer</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-        <div class="job-card">
-          <div class="job-title">Android Developer</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-        <div class="job-card">
-          <div class="job-title">PHP Developer</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-      </div>
-
-      <!-- Jobs - Marketing -->
-      <div class="jobs" id="marketing"
-            style="display:none; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:40px;">
-        <div class="job-card">
-          <div class="job-title">Digital Marketing Specialist</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-        <div class="job-card">
-          <div class="job-title">SEO Analyst</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-      </div>
-
-      <!-- Jobs - Designer -->
-      <div class="jobs" id="designer"
-            style="display:none; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:40px;">
-        <div class="job-card">
-          <div class="job-title">UI/UX Designer</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-        <div class="job-card">
-          <div class="job-title">Graphic Designer</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-      </div>
-
-      <!-- Jobs - Sales -->
-      <div class="jobs" id="sales"
-            style="display:none; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:40px;">
-        <div class="job-card">
-          <div class="job-title">Sales Executive</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-        <div class="job-card">
-          <div class="job-title">Business Development Associate</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-        <div class="job-card">
-          <div class="job-title">Client Relationship Manager</div>
-          <a href="#" class="apply-btn">Apply Now</a>
-        </div>
-      </div>
-
+    <div class="container-fluid px-3" style="max-width:95vw;">
+    <!-- Heading -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold" style="color:#333;">Current Openings</h1>
     </div>
+
+    <!-- Tabs -->
+    <div class="tabs" style="display:flex; justify-content:center; gap:40px; margin-bottom:50px;">
+      <div class="tab active" data-target="developer">Developer</div>
+      <div class="tab" data-target="marketing">Marketing</div>
+      <div class="tab" data-target="designer">Designer</div>
+      <div class="tab" data-target="sales">Sales</div>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const tabs = document.querySelectorAll(".tab");
-        const jobSections = document.querySelectorAll(".jobs");
 
-        tabs.forEach(tab => {
-          tab.addEventListener("click", function() {
-            tabs.forEach(t => t.classList.remove("active"));
-            jobSections.forEach(section => section.style.display = "none");
+    <!-- Job Cards -->
+    <div class="jobs" id="developer" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(480px, 1fr)); gap:40px; justify-items:center;">
+      <div class="job-card">
+        <div class="job-title">iOS Developer</div>
+        <a href="#" class="apply-btn">Apply Now</a>
+      </div>
+      <div class="job-card">
+        <div class="job-title">Android Developer</div>
+        <a href="#" class="apply-btn">Apply Now</a>
+      </div>
+      <div class="job-card">
+        <div class="job-title">PHP Developer</div>
+        <a href="#" class="apply-btn">Apply Now</a>
+      </div>
+    </div>
 
-            this.classList.add("active");
-            const target = this.getAttribute("data-target");
-            document.getElementById(target).style.display = "grid";
-          });
-        });
-      });
-    </script>
+    <div class="jobs" id="marketing" style="display:none; grid-template-columns:repeat(auto-fit, minmax(480px, 1fr)); gap:40px; justify-items:center;">
+      <div class="job-card">
+        <div class="job-title">Digital Marketing Specialist</div>
+        <a href="#" class="apply-btn">Apply Now</a>
+      </div>
+      <div class="job-card">
+        <div class="job-title">SEO Analyst</div>
+        <a href="#" class="apply-btn">Apply Now</a>
+      </div>
+    </div>
+
+    <div class="jobs" id="designer" style="display:none; grid-template-columns:repeat(auto-fit, minmax(480px, 1fr)); gap:40px; justify-items:center;">
+      <div class="job-card">
+        <div class="job-title">UI/UX Designer</div>
+        <a href="#" class="apply-btn">Apply Now</a>
+      </div>
+    </div>
+
+    <div class="jobs" id="sales" style="display:none; grid-template-columns:repeat(auto-fit, minmax(480px, 1fr)); gap:40px; justify-items:center;">
+      <div class="job-card">
+        <div class="job-title">Sales Executive</div>
+        <a href="#" class="apply-btn">Apply Now</a>
+      </div>
+      <div class="job-card">
+        <div class="job-title">Business Development Associate</div>
+        <a href="#" class="apply-btn">Apply Now</a>
+      </div>
+      <div class="job-card">
+        <div class="job-title">Client Relationship Manager</div>
+        <a href="#" class="apply-btn">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+  
+      document.querySelectorAll('.jobs').forEach(job => job.style.display = 'none');
+      document.getElementById(tab.getAttribute('data-target')).style.display = 'grid';
+    });
+  });
+  </script>
     <!-- Careers End -->
 
 
