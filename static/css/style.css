@@ -801,4 +801,104 @@ h6,
   }
 
 
+  /* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  /* Modal Box */
+  .modal-content {
+    background: #fff;
+    border-radius: 15px;
+    padding: 50px 60px;
+    width: 650px;              /* increased from 420px */
+    max-width: 90vw;           /* ensures it fits smaller screens */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  
+  /* Close Button */
+  .close-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 26px;
+    cursor: pointer;
+  }
+  
+  /* Form Layout */
+  .form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content input,
+  .modal-content textarea {
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding: 8px 4px;
+    font-size: 15px;
+  }
+  
+  
+  
+  .apply-btn-modal {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+  }
+  
+  .apply-btn-modal:hover {
+    background-color: #007bff;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    border: none;
+    border-bottom: 1.5px solid #ccc;
+    outline: none;
+    padding: 12px 8px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .upload-box {
+    border: 1.8px dashed #ccc;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    color: #444;
+    margin-bottom: 25px;
+    font-size: 15px;
+  }
   
