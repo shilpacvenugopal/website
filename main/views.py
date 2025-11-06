@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .models import InvestorQuery
+from .models import InvestorQuery,Job
 from .serializers import InvestorQuerySerializer
 
 
@@ -72,3 +72,44 @@ def quote_view(request):
 
 def contact_view(request):
     return render(request, 'contact.html')
+
+
+def get_jobs(request, category):
+    jobs = Job.objects.filter(category=category)
+    data = [
+        {
+            "title": job.title,
+            "description": job.description or "",
+            "posted_on": job.posted_on.strftime("%Y-%m-%d")
+        }
+        for job in jobs
+    ]
+    return JsonResponse({"jobs": data})
+
+
+
+from .models import JobApplication
+
+@csrf_exempt
+def submit_application(request):
+    if request.method == 'POST':
+        role = request.POST.get('role')
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        qualification = request.POST.get('qualification')
+        resume = request.FILES.get('resume')
+        print(request.POST)
+
+        application = JobApplication.objects.create(
+            role=role,
+            name=name,
+            email=email,
+            phone=phone,
+            qualification=qualification,
+            resume=resume
+        )
+        print(application)
+        return JsonResponse({'success': True, 'message': 'Application submitted successfully!'})
+
+    return JsonResponse({'success': False, 'message': 'Invalid request'}, status=400)

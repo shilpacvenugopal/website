@@ -21,4 +21,9 @@ urlpatterns = [
 
     path('submitinvestor/', submit_investor_query, name='submit_investor_query'),
 
+    path('jobs/<str:category>/', views.get_jobs, name='get_jobs'),
+    path('apply/', views.submit_application, name='submit_application'),
+
+
+
 ]
