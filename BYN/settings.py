@@ -76,17 +76,26 @@ WSGI_APPLICATION = 'BYN.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'byn_db',
+#         'USER': 'byn_user',
+#         'PASSWORD': 'byn_password',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'byn_db',
-        'USER': 'byn_user',
-        'PASSWORD': 'byn_password',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME', 'byn_db'),
+        'USER': os.getenv('DB_USER', 'byn_user'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'byn_password'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
-
 
 
 # Password validation
