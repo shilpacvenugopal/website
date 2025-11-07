@@ -799,117 +799,121 @@
 
   <!-- Script -->
   <script>
-  async function loadJobs(category) {
-    const response = await fetch(`/jobs/${category}/`);
-    const data = await response.json();
-    const container = document.getElementById('jobs-container');
-
-    container.innerHTML = ''; // Clear existing jobs
-
-    if (!data.jobs || data.jobs.length === 0) {
-      container.innerHTML = `
-        <div style="text-align:center; background:#f5f6f8; padding:40px; border-radius:10px; width:480px;">
-          <p style="font-size:18px; color:#333; margin-bottom:20px;">No openings available right now.</p>
-        </div>
-      `;
-      return;
-    }
-
-    data.jobs.forEach(job => {
-      const card = document.createElement('div');
-      card.className = 'job-card';
-      card.style = "background:#f5f6f8; padding:40px; border-radius:10px; text-align:center; width:480px; box-shadow:0 4px 12px rgba(0,0,0,0.05);";
-      card.innerHTML = `
-        <div class="job-title" style="font-size:18px; font-weight:bold; margin-bottom:10px;">${job.title}</div>
-        <a href="#" class="apply-btn" data-role="${job.title}"
-          style="display:inline-block; padding:10px 20px; background:#06A3DA; color:#fff; border-radius:6px; text-decoration:none;">Apply Now</a>
-      `;
-      container.appendChild(card);
-    });
-  }
-
-  // Handle tab clicks
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      loadJobs(tab.getAttribute('data-target'));
-    });
-  });
-
-  // Event delegation for Apply Now buttons
-  document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('apply-btn')) {
-      e.preventDefault();
-      const role = e.target.getAttribute('data-role');
-      document.getElementById('jobTitle').textContent = role || 'General Application';
-      document.getElementById('roleField').value = role;
-      document.getElementById('applyModal').style.display = 'flex';
-    }
-
-    if (e.target.classList.contains('close-modal')) {
-      document.getElementById('applyModal').style.display = 'none';
-    }
-  });
-
-  // Close modal when clicking outside
-  window.addEventListener('click', function (e) {
-    const modal = document.getElementById('applyModal');
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  // Handle form submission
-  document.getElementById('applyForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch('/apply/', {
-        method: 'POST',
-        body: formData
-      });
-
-      if (response.ok) {
-        alert('✅ Application submitted successfully!');
-        form.reset();
-        document.getElementById('fileInfo').style.display = 'none';
-        document.getElementById('applyModal').style.display = 'none';
-      } else {
-        alert('❌ Failed to submit. Please try again.');
+    async function loadJobs(category) {
+      const response = await fetch(`/jobs/${category}/`);
+      const data = await response.json();
+      const container = document.getElementById('jobs-container');
+    
+      container.innerHTML = ''; // Clear existing jobs
+    
+      if (!data.jobs || data.jobs.length === 0) {
+        container.innerHTML = `
+          <div style="text-align:center; background:#f5f6f8; padding:40px; border-radius:10px; width:480px;">
+            <p style="font-size:18px; color:#333; margin-bottom:20px;">No openings available right now.</p>
+            <a href="#" class="apply-btn"
+              style="display:inline-block; padding:10px 20px; background:#06A3DA; color:#fff; border-radius:6px; text-decoration:none;">Apply Now</a>
+          </div>
+        `;
+        return;
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('⚠️ Error submitting form. Please check your connection.');
+    
+      // If jobs exist
+      data.jobs.forEach(job => {
+        const card = document.createElement('div');
+        card.className = 'job-card';
+        card.style = "background:#f5f6f8; padding:40px; border-radius:10px; text-align:center; width:480px; box-shadow:0 4px 12px rgba(0,0,0,0.05);";
+        card.innerHTML = `
+          <div class="job-title" style="font-size:18px; font-weight:bold; margin-bottom:10px;">${job.title}</div>
+          <a href="#" class="apply-btn" data-role="${job.title}"
+            style="display:inline-block; padding:10px 20px; background:#06A3DA; color:#fff; border-radius:6px; text-decoration:none;">Apply Now</a>
+        `;
+        container.appendChild(card);
+      });
     }
-  });
-
-  // Resume upload handling
-  const resumeInput = document.getElementById('resumeUpload');
-  const fileInfo = document.getElementById('fileInfo');
-  const fileName = document.getElementById('fileName');
-  const removeFile = document.getElementById('removeFile');
-
-  resumeInput.addEventListener('change', () => {
-    if (resumeInput.files.length > 0) {
-      fileName.textContent = resumeInput.files[0].name;
-      fileInfo.style.display = 'block';
-    } else {
+    
+    // Handle tab clicks
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        loadJobs(tab.getAttribute('data-target'));
+      });
+    });
+    
+    // Event delegation for Apply Now buttons
+    document.addEventListener('click', function (e) {
+      if (e.target.classList.contains('apply-btn')) {
+        e.preventDefault();
+        const role = e.target.getAttribute('data-role') || '';
+        document.getElementById('jobTitle').textContent = role || 'General Application';
+        document.getElementById('roleField').value = role;
+        document.getElementById('applyModal').style.display = 'flex';
+      }
+    
+      if (e.target.classList.contains('close-modal')) {
+        document.getElementById('applyModal').style.display = 'none';
+      }
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function (e) {
+      const modal = document.getElementById('applyModal');
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+    
+    // Handle form submission
+    document.getElementById('applyForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+    
+      const form = e.target;
+      const formData = new FormData(form);
+    
+      try {
+        const response = await fetch('/apply/', {
+          method: 'POST',
+          body: formData
+        });
+    
+        if (response.ok) {
+          alert('✅ Application submitted successfully!');
+          form.reset();
+          document.getElementById('fileInfo').style.display = 'none';
+          document.getElementById('applyModal').style.display = 'none';
+        } else {
+          alert('❌ Failed to submit. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('⚠️ Error submitting form. Please check your connection.');
+      }
+    });
+    
+    // Resume upload handling
+    const resumeInput = document.getElementById('resumeUpload');
+    const fileInfo = document.getElementById('fileInfo');
+    const fileName = document.getElementById('fileName');
+    const removeFile = document.getElementById('removeFile');
+    
+    resumeInput.addEventListener('change', () => {
+      if (resumeInput.files.length > 0) {
+        fileName.textContent = resumeInput.files[0].name;
+        fileInfo.style.display = 'block';
+      } else {
+        fileInfo.style.display = 'none';
+      }
+    });
+    
+    removeFile.addEventListener('click', () => {
+      resumeInput.value = '';
       fileInfo.style.display = 'none';
-    }
-  });
-
-  removeFile.addEventListener('click', () => {
-    resumeInput.value = '';
-    fileInfo.style.display = 'none';
-  });
-
-  // Load default jobs
-  loadJobs('developer');
-  </script>
+    });
+    
+    // Load default jobs
+    loadJobs('developer');
+    </script>
+    
 
   <!-- Careers End -->
 
